@@ -28,6 +28,11 @@ class CurrencyStates(StatesGroup):
     waiting_for_conversion_currency = State()
     waiting_for_conversion_amount = State()
 
+@dp.message(Command("start"))
+async def start(message: types.Message):   
+    await message.answer("Привет! Я бот efmkna. Для конвертации валюты нажмите /convert. Чтобы создать валюту нажмите /save_currency")
+
+
 # Команда /save_currency (сохранение валюты)
 @dp.message(Command("save_currency"))
 async def save_currency_start(message: types.Message, state: FSMContext):
